@@ -1,3 +1,21 @@
-<div class="home">
+<div *ngIf="!gameStarted" class="home">
+  <h1 class="title">Continent quiz</h1>
   <img src="/assets/images/logo.png" alt="" class="logo" />
+  <app-scores></app-scores>
+  <form [formGroup]="nameForm" class="start-game">
+    <mat-form-field
+      class="mat-form-field"
+      appearance="legacy"
+      color="warn"
+      hideRequiredMarker
+    >
+      <mat-label>Your Name</mat-label>
+      <input type="text" matInput [formControl]="playerName" />
+    </mat-form-field>
+    <button [disabled]="nameForm.invalid" (click)="startGame()">
+      Start Game
+    </button>
+  </form>
 </div>
+
+<app-quiz *ngIf="gameStarted"></app-quiz>
