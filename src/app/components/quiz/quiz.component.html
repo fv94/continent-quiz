@@ -1,1 +1,11 @@
-<p>quiz works!</p>
+<div class="quiz">
+  <div class="question-number">Question {{ questionNumber }}</div>
+  <div class="question">This is a question?</div>
+  <img
+    src="https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+    class="question-image"
+  />
+  <div *ngFor="let answer of answers" class="answer">{{ answer.name }}</div>
+  <button [disabled]="" (click)="submitAnswer()">Submit Answer</button>
+  <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+</div>

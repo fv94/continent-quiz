@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizService } from 'src/app/services/quiz.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,14 +10,11 @@ export class HomeComponent implements OnInit {
   nameForm = new FormGroup({});
   playerName = new FormControl(null, [Validators.required]);
 
-  gameStarted = false;
+  gameStarted = true;
 
-  constructor(private quizService: QuizService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.quizService.getQuestions().subscribe((res) => {
-      console.log(res);
-    });
     this.prepareForm();
   }
 
