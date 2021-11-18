@@ -4,7 +4,7 @@ import { ContinentNames } from 'src/app/enums/continent-names.enum';
 import { Continent } from 'src/app/models/continent.model';
 import { Answer } from 'src/app/models/answer.model';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 
@@ -18,7 +18,7 @@ export class QuizComponent implements OnInit {
   questionNumber = 1;
   score = 0;
   gameInProgress = true;
-  playerName: 'Filip';
+  playerName: string;
   endMessage: string;
   isShuffled = false;
   questions: Observable<any[]>;
@@ -46,14 +46,15 @@ export class QuizComponent implements OnInit {
       map((item) => this.shuffle(item.questions).slice(0, 5)),
       shareReplay(1)
     );
+    this.user$.pipe(take(1)).subscribe((user) => (this.playerName = user));
   }
 
-  scoreToMessage(name: string) {
+  scoreToMessage() {
     return this.score <= 750
-      ? `Come on ${name}, you can do it better!`
+      ? `Come on ${this.playerName}, you can do it better!`
       : this.score > 750 && this.score <= 2250
-      ? `Not bad ${name}!`
-      : `Hey ${name}, you didn't tell me you are some kind of a genius!`;
+      ? `Not bad ${this.playerName}!`
+      : `Hey ${this.playerName}, you didn't tell me you are some kind of a genius!`;
   }
 
   selectAnswers(rightAnswer: ContinentNames) {
@@ -102,5 +103,25 @@ export class QuizComponent implements OnInit {
 
   endGame() {
     this.gameInProgress = false;
+    this.checkHighscores();
+  }
+
+  checkHighscores() {
+    let highscores = this.getHighscores();
+    highscores.push({ name: this.playerName, score: this.score });
+    highscores.sort((a, b) => b.score - a.score);
+    highscores = highscores.slice(0, 3);
+    this.setHighscores(highscores);
+  }
+
+  getHighscores() {
+    return JSON.parse(localStorage.getItem('continent-quiz-highscores'));
+  }
+
+  setHighscores(highscores) {
+    localStorage.setItem(
+      'continent-quiz-highscores',
+      JSON.stringify(highscores)
+    );
   }
 }

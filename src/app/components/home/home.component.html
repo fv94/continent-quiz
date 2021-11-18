@@ -2,7 +2,7 @@
   <h1 class="title">Continent quiz</h1>
   <ng-container *ngIf="!gameStarted">
     <img src="/assets/images/logo.png" alt="" class="logo" />
-    <app-scores></app-scores>
+    <app-scores [scores]="highscores"></app-scores>
     <form [formGroup]="nameForm" class="start-game">
       <mat-form-field
         class="mat-form-field"
