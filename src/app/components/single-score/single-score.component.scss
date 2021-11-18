@@ -1,3 +1,5 @@
+$primary-color: #582538;
+
 .single-score {
   display: flex;
   flex-direction: row;
@@ -12,4 +14,13 @@
 
 img {
   width: 1.5rem;
+}
+
+.name {
+  color: $primary-color;
+}
+
+.score {
+  font-weight: bold;
+  color: $primary-color;
 }

@@ -1,6 +1,6 @@
 <div class="quiz">
   <ng-container *ngIf="questions | async as allQuestions">
-    <ng-container *ngIf="questionNumber !== 6; else theEnd">
+    <ng-container *ngIf="gameInProgress; else theEnd">
       <div class="question-number">Question {{ questionNumber }}</div>
       <div class="question">
         {{ allQuestions[questionNumber - 1].question }}
@@ -25,7 +25,10 @@
     </ng-container>
 
     <ng-template #theEnd>
-      <div>{{ score }}</div>
+      <div class="the-end">
+        <div class="the-end-message">{{ scoreToMessage(user$ | async) }}</div>
+        <div class="the-end-score">{{ score }}</div>
+      </div>
     </ng-template>
   </ng-container>
 </div>

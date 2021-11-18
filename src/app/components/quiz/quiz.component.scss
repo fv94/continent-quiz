@@ -49,10 +49,18 @@ mat-progress-bar {
   z-index: 5;
 }
 
-button {
-  background-color: #582538;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 1rem;
+.the-end {
+  width: 80%;
+  text-align: center;
+
+  &-message {
+    font-size: 1.5rem;
+    color: $primary-color;
+  }
+
+  &-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: goldenrod;
+  }
 }

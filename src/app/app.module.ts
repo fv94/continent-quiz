@@ -14,6 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './reducers/user.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatProgressBarModule,
+    StoreModule.forRoot({
+      user: userReducer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

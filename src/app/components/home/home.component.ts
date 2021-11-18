@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as UserActions from '../../actions/user.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.state';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +13,9 @@ export class HomeComponent implements OnInit {
   nameForm = new FormGroup({});
   playerName = new FormControl(null, [Validators.required]);
 
-  gameStarted = true;
+  gameStarted = false;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.prepareForm();
@@ -23,7 +26,9 @@ export class HomeComponent implements OnInit {
   }
 
   startGame() {
-    // this.store.dispatch(new UserActions.AddUser(this.nameForm.value.playerName));
+    this.store.dispatch(
+      new UserActions.AddUser(this.nameForm.value.playerName)
+    );
     this.gameStarted = true;
   }
 }

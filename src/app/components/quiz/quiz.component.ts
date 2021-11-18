@@ -5,6 +5,8 @@ import { Continent } from 'src/app/models/continent.model';
 import { Answer } from 'src/app/models/answer.model';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../app.state';
 
 @Component({
   selector: 'app-quiz',
@@ -15,6 +17,9 @@ export class QuizComponent implements OnInit {
   progress = 0;
   questionNumber = 1;
   score = 0;
+  gameInProgress = true;
+  playerName: 'Filip';
+  endMessage: string;
   isShuffled = false;
   questions: Observable<any[]>;
   continents: Continent[] = [
@@ -27,19 +32,28 @@ export class QuizComponent implements OnInit {
     { name: ContinentNames.OCEANIA },
   ];
 
-  constructor(private quizService: QuizService) {}
+  user$: Observable<string>;
+
+  constructor(
+    private quizService: QuizService,
+    private store: Store<AppState>
+  ) {
+    this.user$ = store.select('user');
+  }
 
   ngOnInit(): void {
     this.questions = this.quizService.getQuestions().pipe(
       map((item) => this.shuffle(item.questions).slice(0, 5)),
       shareReplay(1)
     );
-    this.selectAnswers(ContinentNames.SOUTH_AMERICA);
   }
 
-  pushQuestionAndProgress() {
-    this.questionNumber++;
-    this.progress = (this.questionNumber - 1) * 20;
+  scoreToMessage(name: string) {
+    return this.score <= 750
+      ? `Come on ${name}, you can do it better!`
+      : this.score > 750 && this.score <= 2250
+      ? `Not bad ${name}!`
+      : `Hey ${name}, you didn't tell me you are some kind of a genius!`;
   }
 
   selectAnswers(rightAnswer: ContinentNames) {
@@ -74,6 +88,19 @@ export class QuizComponent implements OnInit {
     if (isRight) {
       this.score = this.score + 750;
     }
-    this.pushQuestionAndProgress();
+    if (this.questionNumber === 5) {
+      this.endGame();
+    } else {
+      this.pushQuestionAndProgress();
+    }
+  }
+
+  pushQuestionAndProgress() {
+    this.questionNumber++;
+    this.progress = (this.questionNumber - 1) * 20;
+  }
+
+  endGame() {
+    this.gameInProgress = false;
   }
 }
