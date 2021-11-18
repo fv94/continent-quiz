@@ -3,6 +3,8 @@ import { QuizService } from 'src/app/services/quiz.service';
 import { ContinentNames } from 'src/app/enums/continent-names.enum';
 import { Continent } from 'src/app/models/continent.model';
 import { Answer } from 'src/app/models/answer.model';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-quiz',
@@ -12,6 +14,9 @@ import { Answer } from 'src/app/models/answer.model';
 export class QuizComponent implements OnInit {
   progress = 0;
   questionNumber = 1;
+  score = 0;
+  isShuffled = false;
+  questions: Observable<any[]>;
   continents: Continent[] = [
     { name: ContinentNames.AFRICA },
     { name: ContinentNames.ANTARCTICA },
@@ -22,14 +27,13 @@ export class QuizComponent implements OnInit {
     { name: ContinentNames.OCEANIA },
   ];
 
-  answers: Answer[];
-
   constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
-    this.quizService.getQuestions().subscribe((res) => {
-      console.log(res);
-    });
+    this.questions = this.quizService.getQuestions().pipe(
+      map((item) => this.shuffle(item.questions).slice(0, 5)),
+      shareReplay(1)
+    );
     this.selectAnswers(ContinentNames.SOUTH_AMERICA);
   }
 
@@ -39,7 +43,7 @@ export class QuizComponent implements OnInit {
   }
 
   selectAnswers(rightAnswer: ContinentNames) {
-    this.answers = [{ name: rightAnswer, isRight: true, isSelected: false }];
+    let answers = [{ name: rightAnswer, isRight: true, isSelected: false }];
     let wrongAnswers = this.continents
       .filter((continent) => continent.name !== rightAnswer)
       .map(
@@ -50,16 +54,12 @@ export class QuizComponent implements OnInit {
             isSelected: false,
           } as Answer)
       );
-    this.answers.push(
-      wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)]
-    );
+    answers.push(wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)]);
     wrongAnswers = wrongAnswers.filter(
-      (continent) => continent.name !== this.answers[1].name
+      (continent) => continent.name !== answers[1].name
     );
-    this.answers.push(
-      wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)]
-    );
-    this.shuffle(this.answers);
+    answers.push(wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)]);
+    return this.shuffle(answers);
   }
 
   shuffle(array: any[]) {
@@ -70,5 +70,10 @@ export class QuizComponent implements OnInit {
     return array;
   }
 
-  submitAnswer() {}
+  submitAnswer(isRight: boolean) {
+    if (isRight) {
+      this.score = this.score + 750;
+    }
+    this.pushQuestionAndProgress();
+  }
 }

@@ -1,11 +1,31 @@
 <div class="quiz">
-  <div class="question-number">Question {{ questionNumber }}</div>
-  <div class="question">This is a question?</div>
-  <img
-    src="https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
-    class="question-image"
-  />
-  <div *ngFor="let answer of answers" class="answer">{{ answer.name }}</div>
-  <button [disabled]="" (click)="submitAnswer()">Submit Answer</button>
-  <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+  <ng-container *ngIf="questions | async as allQuestions">
+    <ng-container *ngIf="questionNumber !== 6; else theEnd">
+      <div class="question-number">Question {{ questionNumber }}</div>
+      <div class="question">
+        {{ allQuestions[questionNumber - 1].question }}
+      </div>
+      <img
+        src="https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+        class="question-image"
+      />
+      <div
+        *ngFor="
+          let answer of selectAnswers(allQuestions[questionNumber - 1].answer)
+        "
+        class="answer"
+        (click)="submitAnswer(answer.isRight)"
+      >
+        {{ answer.name }}
+      </div>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="progress"
+      ></mat-progress-bar>
+    </ng-container>
+
+    <ng-template #theEnd>
+      <div>{{ score }}</div>
+    </ng-template>
+  </ng-container>
 </div>
