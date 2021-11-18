@@ -72,3 +72,9 @@ button {
   border-radius: 5px;
   padding: 1rem 2rem;
 }
+
+@media screen and (min-width: 800px) {
+  .answer {
+    width: 40%;
+  }
+}

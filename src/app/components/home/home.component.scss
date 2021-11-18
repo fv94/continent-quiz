@@ -60,3 +60,10 @@ app-quiz {
   width: 100%;
   height: 80%;
 }
+
+@media screen and (min-width: 800px) {
+  .background-logo {
+    height: 80%;
+    width: auto;
+  }
+}
