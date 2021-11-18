@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { QuizService } from 'src/app/services/quiz.service';
 import { ContinentNames } from 'src/app/enums/continent-names.enum';
 import { Continent } from 'src/app/models/continent.model';
@@ -14,6 +14,8 @@ import { AppState } from '../../app.state';
   styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
+  @Output() returnHome = new EventEmitter<any>();
+
   progress = 0;
   questionNumber = 1;
   score = 0;
@@ -123,5 +125,9 @@ export class QuizComponent implements OnInit {
       'continent-quiz-highscores',
       JSON.stringify(highscores)
     );
+  }
+
+  backToHome() {
+    this.returnHome.emit();
   }
 }

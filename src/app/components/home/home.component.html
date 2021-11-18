@@ -20,6 +20,6 @@
   </ng-container>
   <ng-container *ngIf="gameStarted">
     <img src="/assets/images/logo.png" alt="" class="background-logo" />
-    <app-quiz></app-quiz>
+    <app-quiz (returnHome)="gameEnded()"></app-quiz>
   </ng-container>
 </div>

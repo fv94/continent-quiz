@@ -53,4 +53,10 @@ export class HomeComponent implements OnInit {
     );
     this.gameStarted = true;
   }
+
+  gameEnded() {
+    this.nameForm.reset();
+    this.prepareLocalstorage();
+    this.gameStarted = false;
+  }
 }
