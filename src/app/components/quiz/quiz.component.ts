@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
+import { Question } from 'src/app/models/question.model';
 
 @Component({
   selector: 'app-quiz',
@@ -22,8 +23,7 @@ export class QuizComponent implements OnInit {
   gameInProgress = true;
   playerName: string;
   endMessage: string;
-  isShuffled = false;
-  questions: Observable<any[]>;
+  questions: Observable<Question[]>;
   continents: Continent[] = [
     { name: ContinentNames.AFRICA },
     { name: ContinentNames.ANTARCTICA },

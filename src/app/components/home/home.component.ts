@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as UserActions from '../../actions/user.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
+import { Highscore } from 'src/app/models/highscore.model';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,8 @@ export class HomeComponent implements OnInit {
 
   gameStarted = false;
 
-  highscores: any[];
-  defaultHighscores = [
+  highscores: Highscore[];
+  defaultHighscores: Highscore[] = [
     { name: 'Waiting for you...', score: 0 },
     { name: 'Waiting for you...', score: 0 },
     { name: 'Waiting for you...', score: 0 },
