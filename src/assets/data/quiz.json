@@ -4,67 +4,103 @@
       "id": 1,
       "question": "On which continent is Canada located?",
       "answer": "North America",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/125px-Flag_of_Canada_%28Pantone%29.svg.png"
     },
     {
       "id": 2,
       "question": "On which continent is Montenegro located?",
       "answer": "Europe",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/125px-Flag_of_Montenegro.svg.png"
     },
     {
       "id": 3,
       "question": "On which continent is Cameroon located?",
       "answer": "Africa",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/125px-Flag_of_Cameroon.svg.png"
     },
     {
       "id": 4,
       "question": "On which continent is China located?",
       "answer": "Asia",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/125px-Flag_of_the_People%27s_Republic_of_China.svg.png"
     },
     {
       "id": 5,
       "question": "On which continent is Peru located?",
       "answer": "South America",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/125px-Flag_of_Peru.svg.png"
     },
     {
       "id": 6,
       "question": "On which continent is USA located?",
       "answer": "North America",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/125px-Flag_of_the_United_States.svg.png"
     },
     {
       "id": 7,
       "question": "On which continent is Great Britain located?",
       "answer": "Europe",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/125px-Flag_of_the_United_Kingdom.svg.png"
     },
     {
       "id": 8,
       "question": "On which continent is Brazil located?",
       "answer": "South America",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/125px-Flag_of_the_United_Kingdom.svg.png"
     },
     {
       "id": 9,
       "question": "On which continent is Argentina located?",
       "answer": "South America",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/125px-Flag_of_Argentina.svg.png"
     },
     {
       "id": 10,
       "question": "On which continent is Japan located?",
       "answer": "Asia",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/125px-Flag_of_Japan.svg.png"
     },
     {
       "id": 11,
       "question": "On which continent is Egypt located?",
       "answer": "Africa",
-      "picture": "https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/125px-Flag_of_Egypt.svg.png"
+    },
+    {
+      "id": 12,
+      "question": "On which continent is New Zealand located?",
+      "answer": "Oceania",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/125px-Flag_of_Australia_%28converted%29.svg.png"
+    },
+    {
+      "id": 13,
+      "question": "On which continent is Australia located?",
+      "answer": "Oceania",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/125px-Flag_of_Australia_%28converted%29.svg.png"
+    },
+    {
+      "id": 14,
+      "question": "On which continent is Serbia located?",
+      "answer": "Europe",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/125px-Flag_of_Serbia.svg.png"
+    },
+    {
+      "id": 15,
+      "question": "On which continent is South Korea located?",
+      "answer": "Asia",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/125px-Flag_of_South_Korea.svg.png"
+    },
+    {
+      "id": 16,
+      "question": "On which continent is Philippines located?",
+      "answer": "Asia",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/125px-Flag_of_the_Philippines.svg.png"
+    },
+    {
+      "id": 17,
+      "question": "On which continent is Columbia located?",
+      "answer": "South America",
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/125px-Flag_of_Colombia.svg.png"
     }
   ]
 }

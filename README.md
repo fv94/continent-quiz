@@ -1,27 +1,21 @@
-# ContinentQuiz
+# ContinentQuizApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+## Description
 
-## Development server
+This is the quiz app where you can test your geography knowledge!
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## API
 
-## Code scaffolding
+We used the custom made data.json file for the questions!
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Gameplay
 
-## Build
+The Quiz contains 5 questions. Every question has 3 possible answers and only 1 is right. After you click one of the answers it will become green if you got it right (and we are sure that will be the case often!), and it will become red if you made a mistake. Each right answer gets you 750 points, and you can see the top 3 scorers on the Home page!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Enjoy
 
-## Running unit tests
+Have a great game playing the Continent Quiz!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contact me
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If you have any other question about the app, please contact me at filip.vuckovic88@gmail.com

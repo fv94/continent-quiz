@@ -6,7 +6,7 @@
         {{ allQuestions[questionNumber - 1].question }}
       </div>
       <img
-        src="https://www.infoplease.com/sites/infoplease.com/files/inline-images/iStock-954597352.jpg"
+        [src]="allQuestions[questionNumber - 1].picture"
         class="question-image"
       />
       <div

@@ -16,6 +16,6 @@ export let answered = trigger('answered', [
     'wrongAnswer',
     style({ backgroundColor: 'red', color: 'white', borderColor: 'red' })
   ),
-  transition('nothing => rightAnswer', [animate('2s')]),
-  transition('nothing => wrongAnswer', [animate('2s')]),
+  transition('nothing => rightAnswer', [animate('1s')]),
+  transition('nothing => wrongAnswer', [animate('1s')]),
 ]);

@@ -111,7 +111,7 @@ export class QuizComponent implements OnInit {
       } else {
         this.pushQuestionAndProgress();
       }
-    }, 2000);
+    }, 1000);
   }
 
   pushQuestionAndProgress() {
