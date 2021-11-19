@@ -13,8 +13,21 @@
         *ngFor="
           let answer of selectAnswers(allQuestions[questionNumber - 1].answer)
         "
+        [@answered]="
+          !!selectedAnswer && selectedAnswer === answer.name && answer.isRight
+            ? 'rightAnswer'
+            : !!selectedAnswer &&
+              selectedAnswer === answer.name &&
+              !answer.isRight
+            ? 'wrongAnswer'
+            : 'nothing'
+        "
         class="answer"
-        (click)="submitAnswer(answer.isRight)"
+        (click)="
+          !selectedAnswer
+            ? submitAnswer(answer.isRight, answer.name)
+            : undefined
+        "
       >
         {{ answer.name }}
       </div>

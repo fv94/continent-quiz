@@ -52,6 +52,7 @@ mat-progress-bar {
 .the-end {
   width: 80%;
   text-align: center;
+  z-index: 5;
 
   &-message {
     font-size: 1.5rem;
@@ -71,6 +72,7 @@ button {
   border: none;
   border-radius: 5px;
   padding: 1rem 2rem;
+  z-index: 5;
 }
 
 @media screen and (min-width: 800px) {
