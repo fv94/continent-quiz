@@ -1,4 +1,4 @@
-$primary-color: #582538;
+@import "./../../styles/variables";
 
 .single-score {
   display: flex;
@@ -17,10 +17,10 @@ img {
 }
 
 .name {
-  color: $primary-color;
+  color: $purple;
 }
 
 .score {
   font-weight: bold;
-  color: $primary-color;
+  color: $purple;
 }

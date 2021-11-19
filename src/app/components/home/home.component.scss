@@ -1,4 +1,4 @@
-$primary-color: #582538;
+@import "./../../styles/variables";
 
 .home {
   height: 100vh;
@@ -30,20 +30,20 @@ app-scores {
 
 mat-form-field {
   text-align: center;
-  caret-color: $primary-color;
+  caret-color: $purple;
   width: 100%;
 }
 
 :host ::ng-deep .mat-form-field-underline {
-  background-color: $primary-color !important;
+  background-color: $purple !important;
 }
 
 mat-label {
-  color: $primary-color;
+  color: $purple;
 }
 
 button {
-  background-color: #582538;
+  background-color: $purple;
   color: white;
   border: none;
   border-radius: 5px;
