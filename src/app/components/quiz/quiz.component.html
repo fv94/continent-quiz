@@ -1,7 +1,7 @@
 <div class="quiz">
   <ng-container *ngIf="questions | async as allQuestions">
     <ng-container *ngIf="gameInProgress; else theEnd">
-      <div class="question-number">Question {{ questionNumber }}</div>
+      <div class="question-number">Question number {{ questionNumber }}</div>
       <div class="question">
         {{ allQuestions[questionNumber - 1].question }}
       </div>
